@@ -1,12 +1,14 @@
 import java.time.LocalDate;
 
 public class DateUtils {
-    public static boolean isDate(LocalDate startingDate, LocalDate endingDate) {
+    public static boolean isNowBetween(LocalDate startingDate, LocalDate endingDate) {
         LocalDate now = LocalDate.now();
-        return isDate(startingDate, endingDate, now);
+        return now.isAfter(startingDate)
+                &&
+                now.isBefore(endingDate);
     }
 
-    private static boolean isDate(LocalDate startingDate, LocalDate endingDate, LocalDate now) {
+    public static boolean isNowBetween(LocalDate startingDate, LocalDate endingDate, LocalDate now) {
         return now.isAfter(startingDate)
                 &&
                 now.isBefore(endingDate);
